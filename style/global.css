@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --background-primary: rgb(244, 245, 251);
+  --background-secondary: #FFFFFF;
+  
+  --color-brand: #CA3884;
+  --color-brand-hover: #A52C6B;
+  --color-danger: #C93847;
+
+  --content-primary: #080B12;
+  --content-secondary: #374151;
+  --content-tertiary: #9CA3AF;
+  --always-white: #FFFFFF;
+
+  --border-primary: #D1D5DB;
+  --border-hover: #B9C2D0;
+
+  /* Texts */
+  --inter: "Inter", sans-serif;
+
+  --title: 700 1.5rem/2rem var(--inter);
+  --label: 600 1rem/1.25rem var(--inter);
+  --paragraph: 400 1rem/1.25rem var(--inter);
+  --link: 400 .875rem/1rem var(--inter);
+}
+
+body {
+  background-image: url(../assets/background.png);
+  background-position: center;
+  font: var(--paragraph);
+}
+
+main {
+  max-width: 50rem;
+  margin: auto;
+}
+
+.none {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+/* Title */
+.title {
+  display: flex;
+  justify-content: center;
+  margin-block: 3rem;
+  gap: .5rem;
+
+  & h1 {
+    color: var(--content-secondary);
+    font: 700 2.5rem var(--inter);
+  }
+
+  & img {
+    width: 3rem;
+    margin-top: .25rem;
+  }
+}
+
+/* Botao voltar */
+h3 {
+  color: var(--color-brand);
+  margin-top: 7rem;
+  display: flex;
+  justify-content: start;
+}
+
+/* Titulo h2 */
+h2 {
+  font: var(--title);
+  color: var(--content-primary);
+  margin-top: 2rem;
+}
+
+
+/* Add item */
+.add-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 1.5rem;
+}
+
+#new-item-box {
+  width: 75%;
+  color: var(--content-tertiary);
+  border: .125rem solid var(--border-primary);
+  border-radius: .75rem;
+  background-color: rgba(244, 245, 251, 0.3);
+  padding: 1rem;
+  font: var(--paragraph);
+
+  &:hover {
+    border: .125rem solid var(--border-hover);
+  }
+
+  &:focus-within {
+    border: .125rem solid var(--color-brand);
+  }
+}
+
+#btn {
+  width: 25%;
+  color: var(--always-white);
+  border: .125rem solid var(--border-primary);
+  border-radius: .75rem;
+  background-color: var(--color-brand);
+  padding: 1rem;
+  font: var(--paragraph);
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+  }
+}
+
+/* Lista de buys */
+.buy-list {
+  margin-top: 3rem;
+
+  & .list-inner {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    color: var(--content-secondary);
+    border-radius: .75rem;
+    background-color: rgba(244, 245, 251, 0.3);
+    padding: 1rem;
+    font: var(--paragraph);
+    gap: 1rem;
+    margin-block: .75rem;
+
+    & #mark {
+      all: unset;
+      width: 1rem;
+      height: 1rem;
+      border-radius: .5rem;
+      border: .125rem solid var(--border-primary);
+
+      &:hover {
+        border: .125rem solid var(--border-hover);
+      }
+
+      &:checked {
+        border: .125rem solid var(--color-brand);
+        background-color: var(--color-brand);
+        background-image: url(../assets/icons/check.svg);
+        background-size: cover;
+      }
+    }
+
+    & #delete {
+      all: unset;
+      width: 2rem;
+      height: 2rem;
+      margin-left: auto;
+      background-image: url(../assets/icons/trash.svg);
+    }
+  }
+}
+
+/* Delete-item */
+.delete-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--always-white);
+  border: .125rem solid var(--color-danger);
+  border-radius: .75rem;
+  background-color: var(--color-danger);
+  padding: .75rem;
+  font: var(--label);
+  margin-top: 3rem;
+  gap: .5rem;
+
+  & #delete-item-btn {
+    all: unset;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(../assets/icons/x.svg);
+    background-size: contain;
+    margin-left: auto;
+  }
+}
+
+/* Responsividade */
+@media (width <= 51.25rem) {
+  h3, h2 {
+    margin-left: 1rem;
+    ma
+  }
+  
+  h3 {
+    margin-top: 2rem;
+  }
+  
+  .add-item {
+    flex-wrap: wrap;
+    margin-inline: 1.5rem;
+  }
+
+  #new-item-box {
+    width: 100%;
+  }
+
+  #btn {
+    width: 100%;
+  }
+
+  .buy-list {
+    & .list-inner {
+      width: 95%;
+      margin-inline: auto;
+    }
+  }
+
+  .delete-item {
+    width: 95%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+}
