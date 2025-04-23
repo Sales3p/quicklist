@@ -1,19 +1,33 @@
-// new-item-box = produto
+const footer = document.getElementById("footer");
+const closeBtn = document.getElementById("delete-item-btn");
 
-let buyList = document.querySelector("ul")
-let newItemBox = document.querySelector("#new-item-box")
-let btn = document.querySelector("#btn")
-let del = document.querySelector("#delete")
+function addItem() {
+  let inputInner = document.getElementById('new-item-box').value
 
-btn.addEventListener("click", function(event) {
-  event.preventDefault()
-  let item = '<li class="list-inner"><input type="checkbox" name="mark" id="mark"><p>' + newItemBox.value + '</p><input type="button" id="delete"></li>'
-  buyList.innerHTML += item
-  newItemBox.value = ''
-  newItemBox.focus()
-})
+  // Verifica se há algo no campo de input
+  if (inputInner.trim() === '') return;
 
-del.addEventListener('click', function(esc){
-  esc.preventDefault()
-  removeEventListener(item)
+  // Cria um novo item na lista
+  let li = document.createElement('li')
+  li.innerHTML = inputInner + '<input type="radio" id="delete" onClick="delet(this)">'  
+
+  document.querySelector('ul').appendChild(li)
+  
+  // Limpa o campo de input
+  document.getElementById('new-item-box').value = ''
+}
+
+function delet(radioBtn) {
+  // Remove o item da lista
+  radioBtn.parentElement.remove()
+
+  // Mostra o footer
+  footer.classList.remove('none');
+  footer.classList.add('show');
+}
+
+closeBtn.addEventListener('click', () => {
+  // Oculta o footer ao clicar no X
+  footer.classList.remove("show");
+  footer.classList.add("none");
 })

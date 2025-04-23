@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style/index.css">
+  <link rel="stylesheet" href="style.css">
   <title>Quicklist</title>
 </head>
 <body>
@@ -20,45 +20,24 @@
 
     <h2>Compras da semana</h2>
     
-    <form>
-      <div class="add-item">
-        <input type="text" name="new-item-box" id="new-item-box" placeholder="Adicione um novo item">
-        <button type="submit" name="btn" id="btn">Adicionar item</button>
-      </div>
+    <div class="add-item">
+      <input type="text" name="new-item-box" id="new-item-box" placeholder="Adicione um novo item">
+      <button type="submit" name="btn" id="btn" onclick="addItem()">Adicionar item</button>
+    </div>
 
-      <ul class="buy-list">
-        <li class="list-inner">
-          <input type="checkbox" name="mark" id="mark">
-          <p>Café preto</p>
-          <input type="button" id="delete">
-        </li>
+    <ul class="buy-list" id="container">
+      <!-- <li class="list-inner">
+        <p>Café preto<p>
+        <input type="radio" id="delete">
+      </li> -->
+    </ul>
 
-        <li class="list-inner">
-          <input type="checkbox" name="mark" id="mark">
-          <p>Suco de laranja</p>
-          <input type="button" id="delete">
-        </li>
- 
-        <li class="list-inner">
-          <input type="checkbox" name="mark" id="mark">
-          <p>Pão de forma</p>
-          <input type="button" id="delete">
-        </li>
+    <footer class="delete-item none" id="footer">
+      <img src="assets/icons/error.svg" alt="icone de erro">
+      <p>O item foi removido da lista</p>
+      <input type="radio" name="delete-item" id="delete-item-btn">
+    </footer>
 
-        <li class="list-inner">
-          <input type="checkbox" name="mark" id="mark">
-          <p>Bolacha</p>
-          <input type="button" id="delete">
-        </li>
-      </ul>
-
-      <footer class="delete-item">
-        <img src="assets/icons/error.svg" alt="icone de erro">
-        <p>O item foi removido da lista</p>
-        <input type="radio" name="delete-item" id="delete-item-btn">
-      </footer>
-
-    </form>
   </main>
 
   <script src="scripts.js"></script>
